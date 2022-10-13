@@ -18,12 +18,12 @@ const ResultsDetail = ({ result }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginLeft: 15,
+    marginLeft: 12,
   },
   image: {
     width: 250,
     height: 120,
-    borderRadius: 4,
+    borderRadius: 7,
     marginBottom: 5,
   },
   name: {

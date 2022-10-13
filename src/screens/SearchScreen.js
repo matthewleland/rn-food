@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import SearchBar from '../components/SearchBar'
 import ResultsList from '../components/ResultsList'
 import useSearch from '../hooks/useSearch'
@@ -16,30 +16,32 @@ function SearchScreen() {
   }
 
   return (
-    <View>
+    <>
       <SearchBar
         term={term}
         onTermChange={setTerm}
         onTermSubmit={() => search(term)}
       />
       {errorMessage ? <Text>{errorMessage}</Text> : null}
-      <Text>Number of Results: {results.length}</Text>
-      <ResultsList
-        title='Cost Effective'
-        results={filterResultsByPrice('$')}
-      />
-      <ResultsList
-        title='Bit Pricier'
-        results={filterResultsByPrice('$$')}
-      />
-      <ResultsList
-        title='Big Spender'
-        results={filterResultsByPrice('$$$')}
-      />
-    </View>
+      <ScrollView>
+        <ResultsList
+          title='Cost Effective'
+          results={filterResultsByPrice('$')}
+        />
+        <ResultsList
+          title='Bit Pricier'
+          results={filterResultsByPrice('$$')}
+        />
+        <ResultsList
+          title='Big Spender'
+          results={filterResultsByPrice('$$$')}
+        />
+      </ScrollView>
+    </>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+})
 
 export default SearchScreen

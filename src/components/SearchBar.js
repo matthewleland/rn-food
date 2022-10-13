@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#DEDEDE',
     height: 40,
-    margin: 15,
+    margin: 10,
     borderRadius: 18,
   },
   icon: {
