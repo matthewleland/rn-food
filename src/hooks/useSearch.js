@@ -5,13 +5,12 @@ export default () => {
   const [results, setResults] = useState([])
   const [errorMessage, setError] = useState('')
 
-  const search = async term => {
-    setError('')
+  const search = async searchTerm => {
     try {
       const response = await yelp.get('/search', {
         params: {
-          limit: 10,
-          term,
+          limit: 50,
+          term: searchTerm,
           location: 'glendora',
         },
       })
@@ -23,6 +22,7 @@ export default () => {
 
   useEffect(() => {
     search('pasta')
-    return [search, results, errorMessage]
   }, [])
+
+  return [search, results, errorMessage]
 }
