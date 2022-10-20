@@ -31,12 +31,16 @@ const ResultsShowScreen = ({ navigation }) => {
     return null
   }
 
-  const userOne = reviews[0].user.name + ' (' + reviews[0].rating + '/5)'
-  const textOne = reviews[0].text
-  const userTwo = reviews[1].user.name + ' (' + reviews[1].rating + '/5)'
-  const textTwo = reviews[1].text
-  const userThree = reviews[2].user.name + ' (' + reviews[2].rating + '/5)'
-  const textThree = reviews[2].text
+  reviews[0] ? console.log('review 0') : console.log('no review')
+
+  // const userOne = reviews[0].user.name + ' (' + reviews[0].rating + '/5)'
+  // const textOne = reviews[0].text
+  // const userTwo = reviews[1].user.name + ' (' + reviews[1].rating + '/5)'
+  // const textTwo = reviews[1].text
+  // const userThree = reviews[2].user.name + ' (' + reviews[2].rating + '/5)'
+  // const textThree = reviews[2].text
+
+  reviews[0] ? console.log('review 0') : console.log('no review')
 
   return (
     <View style={styles.all}>
@@ -54,12 +58,12 @@ const ResultsShowScreen = ({ navigation }) => {
           )
         }}
       />
-      <Text style={styles.user}>{userOne}</Text>
+      {/* <Text style={styles.user}>{userOne}</Text>
       <Text style={styles.review}>{textOne}</Text>
       <Text style={styles.user}>{userTwo}</Text>
       <Text style={styles.review}>{textTwo}</Text>
       <Text style={styles.user}>{userThree}</Text>
-      <Text style={styles.review}>{textThree}</Text>
+      <Text style={styles.review}>{textThree}</Text> */}
       <Text style={styles.detail}>Phone: {result.display_phone}</Text>
       <Text style={styles.detail}>
         Address: {result.location.display_address}
