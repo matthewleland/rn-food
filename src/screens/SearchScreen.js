@@ -1,8 +1,15 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native'
 import SearchBar from '../components/SearchBar'
 import ResultsList from '../components/ResultsList'
 import useSearch from '../hooks/useSearch'
+import { FontAwesome } from '@expo/vector-icons'
 
 function SearchScreen() {
   const [term, setTerm] = useState('')
@@ -41,7 +48,25 @@ function SearchScreen() {
   )
 }
 
+SearchScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: () => (
+      <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
+        <FontAwesome
+          style={styles.icon}
+          name='heart'
+        />
+      </TouchableOpacity>
+    ),
+  }
+}
+
 const styles = StyleSheet.create({
+  icon: {
+    fontSize: 24,
+    color: 'black',
+    paddingHorizontal: 10,
+  },
 })
 
 export default SearchScreen
