@@ -9,13 +9,13 @@ import {
   Button,
 } from 'react-native'
 import yelp from '../api/yelp'
-import FavoritesContext from '../context/FavoritesContext'
+import { Context } from '../context/FavoritesContext'
 
 const ResultsShowScreen = ({ navigation }) => {
   const [result, setResult] = useState()
   const [reviews, setReviews] = useState()
   const id = navigation.getParam('id')
-  const { data, addFavorite } = useContext(FavoritesContext)
+  const { state, addFavorite } = useContext(Context)
 
   const getResult = async id => {
     const rslt = await yelp.get(`/${id}`)
@@ -26,6 +26,13 @@ const ResultsShowScreen = ({ navigation }) => {
     const rvs = await yelp.get(`/${id}/reviews`).then(response => {
       setReviews(response.data.reviews)
     })
+  }
+
+  function newFav(id, name) {
+    if (!state.find(fav => fav.id === id)) {
+      addFavorite(id, name)
+    }
+    navigation.navigate('Favorites')
   }
 
   useEffect(() => {
@@ -79,7 +86,9 @@ const ResultsShowScreen = ({ navigation }) => {
         </Text>
         <Button
           title='Add to Favorites'
-          onPress={() => addFavorite(id, result.name)}
+          onPress={() => {
+            newFav(id, result.name)
+          }}
         />
       </ScrollView>
     </View>

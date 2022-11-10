@@ -1,6 +1,6 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-import { FavoritesProvider } from './src/context/FavoritesContext'
+import { Provider } from './src/context/FavoritesContext'
 import SearchScreen from './src/screens/SearchScreen'
 import ResultsShowScreen from './src/screens/ResultsShowScreen'
 import FavoritesScreen from './src/screens/FavoritesScreen'
@@ -23,8 +23,8 @@ const App = createAppContainer(navigator)
 
 export default () => {
   return (
-    <FavoritesProvider>
+    <Provider>
       <App />
-    </FavoritesProvider>
+    </Provider>
   )
 }

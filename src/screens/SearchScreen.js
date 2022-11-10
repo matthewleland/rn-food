@@ -63,9 +63,9 @@ SearchScreen.navigationOptions = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   icon: {
-    fontSize: 24,
+    fontSize: 22,
     color: 'black',
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
   },
 })
 
