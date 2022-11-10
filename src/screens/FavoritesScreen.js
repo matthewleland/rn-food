@@ -39,6 +39,7 @@ function FavoritesScreen({ navigation }) {
             </TouchableOpacity>
           )
         }}
+        ListEmptyComponent={<Text>No Favorites to Show</Text>}
       />
       <Button
         title='Return to Search'
